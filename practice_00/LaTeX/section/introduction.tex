@@ -1,0 +1,22 @@
+\section{Questões para Estudo}
+	\begin{enumerate}
+		\item{Há alguma forma mais simples de se realizar a configuração dos equipamentos para que sejam devidamente conectados à rede?
+
+			\textbf{R:} A utilização de DHCP (\emph{Dynamic Host Configuration Protocol}, em português: Protocolo de Configuração Dinâmica de \emph{host}) simplifica a configuração, tornando os processo de concessão de endereços IP, máscara de sub-rede e \emph{Gateway} padrão automáticos, dentre outros.}
+			\item{Qual é a lista mínima de informações necessárias para que determinado equipamento fique plenamente operacional em uma rede?
+
+				\textbf{R:} É necessário, no mínimo, das seguintes informações para permitir operações em uma rede:
+				\begin{enumerate}
+					\item{\textbf{Endereço IP}: Consiste de 4 palavras de 8 bits, expresso normalmente em 4 conjuntos decimais que variam de ``000" à ``255". O IP de um \emph{host} estabelece o endereço de comunicação do mesmo.}
+					\item{\textbf{Máscara de Rede}: Consiste de 4 palavras de 8 bits, expresso normalmente em 4 conjuntos decimais que variam de ``000" à ``255". A máscara de rede estabelece qual fatia da rede está disponível para definição de \emph{hosts}.}
+					\item{\textbf{\emph{Gateway} Padrão}: Consiste de 4 palavras de 8 bits, expresso normalmente em 4 conjuntos decimais que variam de ``000" à ``255". O \emph{gateway} padrão deve ser o endereço IP do roteador, responsável por receber e emitir pacotes de dados entre a rede interna e a rede externa.}
+				\end{enumerate}}
+			\item{O que acontece quando alguma das informações necessárias é suprimida? Elabore melhor os cenários.
+
+				\textbf{R:} A comunicação do \emph{host} na rede será predicada, pois sem o/a:
+				\begin{enumerate}
+					\item{\textbf{Endereço IP}: O \emph{host} não poderá ser identificado na rede, e não poderá enviar nem receber pacotes. Equivale a ter uma casa sem endereço, ou uma conta de e-mail sem o próprio e-mail.}
+					\item{\textbf{Máscara de Rede}: A especificação da sub-rede será comprometida, prejudicando na definição do \emph{host} e das transmissões de rede. Equivale a definir um endereço sem bairro, cidade e estado.}
+					\item{\textbf{\emph{Gateway} Padrão}: A comunicação interna e externa da rede será comprometida, pois não foi definido o intercomunicador da rede. Equivale a não ter carteiro para enviar uma carta para os diferentes remetentes.}
+				\end{enumerate}}
+		\end{enumerate}
