@@ -1,0 +1,13 @@
+Qual é o papel do arquivo \texttt{/etc/hosts} no processo de resolução de  nomes?
+
+\textbf{R}: O arquivo \texttt{/etc/hosts} armazena pares de endereço de \texttt{IP} (tanto para \text{IPv4} quanto para \text{IPv6}) e \textbf{nome do \emph{host}}, de forma que, ao inserir o \textbf{nome do \emph{host}}, este redirecione para o endereço de \texttt{IP} correspondente quando se tratar de uma transação que exija esse protocolo.
+
+Por exemplo, ao definir os seguintes pares no arquivo \texttt{/etc/hosts}:
+\begin{lstlisting}
+	# IPv4
+	127.0.0.1 localhost
+	# IPv6
+	::1 localhost
+\end{lstlisting}
+
+Sempre que realizar uma requisição utilizando o protocolo \texttt{IP} com o \textbf{nome de \emph{host}} \texttt{localhost} será redirecionado o valor \texttt{127.0.0.1} (\texttt{IPv4}) ou o valor \texttt{::1} (\texttt{IPv6}).

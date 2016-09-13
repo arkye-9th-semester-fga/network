@@ -1,0 +1,54 @@
+Em relação às interações com o protocolo \texttt{HTTP}, foi possível identificar o cabeçalho de uma requisição típica? Em relação às respostas do servidor, identifique os campos típicos da resposta incluindo descrições sobre as linhas de cabeçalho e o campo de \emph{payload}.
+
+\indent \textbf{R}: Sim, foi possível identificar o cabeçalho de uma requisição típica \texttt{HTTP}. Diferentes \emph{browsers} possuem ferramentas que registra as requisições e respostas de protocolo \texttt{HTTP}. Como forma de exemplificar e identificar os campos típicos de respostas do servidor, é descrito abaixo duas requisições \texttt{HTTP} de método \texttt{GET} e tipo \texttt{HTML}, o primeiro da página do roteiro desta atividade prática (\url{http://aprender.ead.unb.br/pluginfile.php/238246/mod_resource/content/6/01_pratica_aplicacao.pdf}) e o segundo de uma página do \texttt{StackExchange} (\url{http://ell.stackexchange.com/questions/103371}). Foi utilizado o navegador \texttt{Mozilla Iceweasel}, versão \texttt{38.7.1}:
+
+\begin{lstlisting}
+	Accept-Ranges: bytes
+	Age: 0
+	Cache-Control: private
+	Connection: keep-alive
+	Content-Encoding: gzip
+	Content-Length: 22147
+	Content-Type: text/html; charset=utf-8
+	Date: Tue, 13 Sep 2016 13:37:24 GMT
+	Vary: Accept-Encoding
+	Via: 1.1 varnish
+	X-Cache: MISS
+	X-Cache-Hits: 0
+	X-Frame-Options: SAMEORIGIN
+	X-Request-Guid: 73304d1a-6887-44fc-af37-17a34a22125a
+	X-Served-By: cache-gru7122-GRU
+	X-Timer: S1473773844.840175,VS0,VE140
+	x-dns-prefetch-control: off
+\end{lstlisting}
+
+O \emph{payload} para esta requisição foi um arquivo \texttt{HTML} de $2131$ linhas. O código de resposta foi $200$ e significa \texttt{OK}.
+
+\begin{lstlisting}
+	Accept-Ranges: bytes
+	Cache-Control: private, max-age=21600, no-transform
+	Connection: Keep-Alive
+	Content-Disposition: inline; filename="01_pratica_aplicacao.pdf"
+	Content-Length: 205956
+	Content-Type: application/pdf
+	Date: Tue, 13 Sep 2016 13:39:56 GMT
+	Etag: "aa926467c375676a0690dfff6176baaf345aeffb"
+	Expires: Tue, 13 Sep 2016 19:39:56 GMT
+	Keep-Alive: timeout=5, max=100
+	Last-Modified: Wed, 07 Sep 2016 02:35:06 GMT
+	Server: Apache/2.2.22 (Debian)
+	X-Powered-By: PHP/5.6.21-1~dotdeb+7.1
+\end{lstlisting}
+
+O \emph{payload} para esta requisição foi um arquivo \texttt{PDF} de $1894$ linhas. O código de resposta foi $200$ e significa \texttt{OK}.
+
+Os campos em comum de cabeçalho foram:
+
+\begin{enumerate}
+	\item{\textbf{Accept-Ranges}: Permite ao servidor indicar a aceitação de alcance de requisições para um recurso. No exemplo, ambos utilizaram o termo \texttt{bytes}, que estabelece a aceitação do servidor de origem para o alcance em \emph{bytes}.}
+	\item{\textbf{Cache-Control}: Campo também presente em requisições, é utilizado para especificar diretrizes que serão obedecidos por todos os mecanismos de \emph{caching} na cadeia de requisições e respostas. O termo \texttt{private} indica que toda ou parte da mensagem de resposta é intencionada para um usuário único e não deve ser armazenado em \emph{cache} compartilhado.}
+	\item{\textbf{Connection}: Campo também presente em requisições, permite ao emissor especificar opções que são desejados para uma particular conexão e que não devem ser comunicados por \emph{proxies} ao longo de futuras conexões. O termo \emph{keep-alive} descreve que a conexão será mantida ao fim da emissão.}
+	\item{\textbf{Content-Length}: Campo que está presente no cabeçalho sempre que houver \emph{payload}, é utilizado para informar o tamanho do \emph{payload}, e deve conter um número maior ou igual a $0$.}
+	\item{\textbf{Content-Type}: Campo também presente em requisições, indica o tipo de arquivo contido no \emph{payload}. O primeiro exemplo possui no \emph{payload} um arquivo de texto \texttt{HTML}, e o segundo exemplo um arquivo de aplicação do tipo \texttt{PDF}.}
+	\item{\textbf{Date}: Campo também presente em requisições, representa a data e hora que a mensagem foi gerada. Possui a mesma semântica de \texttt{orig-date} descrita na norma \texttt{RFC 822}. O valor do campo é um \texttt{HTTP-date} com formato de data descrito na norma \texttt{RFC 1123}.}
+\end{enumerate}
